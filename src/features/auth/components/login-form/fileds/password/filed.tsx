@@ -20,6 +20,7 @@ export default function Password() {
             <Input
                 id="password"
                 type="text"
+                aria-invalid={errors.password ? "true" : "false"}
                 placeholder="* * * * * * * *"
                 {...register("password")}
             />

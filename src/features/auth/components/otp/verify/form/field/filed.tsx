@@ -6,7 +6,9 @@ import {
 } from "@/components/ui/input-otp";
 
 export default function VerifyField() {
-    const { control } = useFormContext();
+    const {
+        control,
+    } = useFormContext();
 
     return (
         <Controller
