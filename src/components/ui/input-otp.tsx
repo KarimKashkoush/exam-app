@@ -18,7 +18,7 @@ function InputOTP({
         "cn-input-otp flex items-center has-disabled:opacity-50",
         containerClassName
       )}
-      spellCheck={false}
+      spellCheck={false} 
       className={cn("disabled:cursor-not-allowed", className)}
       {...props}
     />

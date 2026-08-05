@@ -24,7 +24,7 @@ const buttonVariants = cva(
           "bg-red-600 dark:bg-destructive/20 dark:hover:bg-destructive/30 dark:focus-visible:ring-destructive/40",
 
         link:
-          "text-primary underline-offset-4 hover:underline",
+          "text-blue-600",
 
         disabled:
           "bg-gray-200 text-gray-400 dark:bg-muted/50 dark:text-muted-foreground/50 dark:hover:bg-muted/40",

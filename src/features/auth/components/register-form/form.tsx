@@ -6,7 +6,7 @@ import ButtonForm from "./form/button/next-button/button";
 import { emailVerification } from "../../apis/email-verification/email-verification";
 import { toast } from "sonner";
 import { useNavigate } from "react-router-dom";
-export default function RegisterForm() {
+export default function EmailForm() {
     const navigate = useNavigate();
     const methods = useForm<RegisterFormData>({
         resolver: zodResolver(registerEmailSchema),

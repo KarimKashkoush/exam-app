@@ -141,7 +141,7 @@ function CountrySelect({
             variant="outline"
             size={variant}
             className={cn(
-              "rounded-none h-11.5 border-r-0 px-3 flex items-center gap-2 min-w-20 justify-between",
+              "rounded-none bg-transparent border-gray-200 hover:bg-transparent hover:text-black h-11.5 border-r-0 px-3 flex items-center gap-2 min-w-20 justify-between",
               disabled && "opacity-50"
             )}
             disabled={disabled}
