@@ -1,4 +1,4 @@
-import { Route } from "react-router-dom";
+import { Navigate, Route } from "react-router-dom";
 
 // import PublicRoute from "../"
 import DiplomaLayout from "../layout/diploma-layout";
@@ -7,8 +7,10 @@ import ProtectedRoute from "@/features/auth/guards/ProtectedRoute";
 
 
 export const DiplomasRoute = (
-    <Route element={<ProtectedRoute  />}>
-        <Route path="/" element={<DiplomaLayout />}>
+    <Route path="/" element={<ProtectedRoute />}>
+        <Route index element={<Navigate to="/diplomas" replace />} />
+
+        <Route path="diplomas" element={<DiplomaLayout />}>
             <Route index element={<DiplomasPage />} />
         </Route>
     </Route>
