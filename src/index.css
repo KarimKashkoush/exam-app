@@ -6,7 +6,6 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  
   --background-image-gradient-radial: radial-gradient(var(--tw-gradient-stops));
   --font-inter: "Inter", sans-serif;
   --font-mono: "Geist Mono", monospace;
@@ -130,6 +129,6 @@
   }
 
   html {
-    @apply font-sans;
+    @apply font-mono;
   }
 }

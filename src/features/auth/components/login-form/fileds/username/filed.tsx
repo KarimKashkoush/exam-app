@@ -13,12 +13,13 @@ export default function Username() {
     } = useFormContext<LoginFormData>();
     return (
         <Field className="flex-1">
-            <FieldLabel htmlFor="firstName">
+            <FieldLabel htmlFor="username">
                 UserName<span className="text-red-500">*</span>
             </FieldLabel>
 
             <Input
                 id="username"
+                aria-invalid={errors.username ? "true" : "false"}
                 type="text"
                 placeholder="Ahmed@123"
                 {...register("username")}

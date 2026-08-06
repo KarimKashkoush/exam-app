@@ -9,8 +9,10 @@ import { toast } from "sonner";
 import { Link, useNavigate } from "react-router-dom";
 import { LoginApi } from "../../apis/login/login";
 import Password from "./fileds/password/filed";
+import FormError from "./form-error/form-error";
 
 export default function LoginForm() {
+
     const navigate = useNavigate();
     const methods = useForm<LoginFormData>({
         resolver: zodResolver(loginformationSchema),
@@ -20,12 +22,17 @@ export default function LoginForm() {
         },
     });
 
+    const {
+        formState: { errors },
+    } = methods;
+
     const onSubmit = async (data: LoginFormData) => {
         try {
             const response = await LoginApi(data);
             if (response.code === 200) {
                 useAuthStore.getState().setAuth(response.payload.user, response.payload.token);
-                toast.success(response.message);
+                console.log(response);
+                toast.success("Login successful!");
                 navigate("/");
             }
         } catch (error: unknown) {
@@ -41,7 +48,11 @@ export default function LoginForm() {
 
                 <Username />
                 <Password />
-                <Link to="/auth/forgot-password" className="text-blue-600 font-medium text-sm font-mono text-end">Forgot your password?</Link>
+                <Link to="/auth/forgot-password" className="text-blue-600 font-medium text-sm font-mono text-end mb-1">Forgot your password?</Link>
+
+                {(errors.username || errors.password) && (
+                    <FormError />
+                )}
                 <Button />
                 <p className="text-sm font-medium text-gray-500 font-mono text-center">Don't have an account? <Link to="/auth/register" className="text-blue-600">Create yours</Link></p>
             </form>

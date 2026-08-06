@@ -24,6 +24,7 @@ export default function Email() {
             <Input
                 id="email"
                 type="email"
+                aria-invalid={errors.email ? "true" : "false"}
                 placeholder="user@example.com"
                 {...register("email")}
             />
