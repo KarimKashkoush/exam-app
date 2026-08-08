@@ -2,7 +2,9 @@ import { isValidPhoneNumber } from "react-phone-number-input";
 import { z } from "zod";
 
 export const registerSchema = z.object({
-    email: z.email({ error: ((iss) => iss.code === "invalid_type" ? "Please enter your email" : "Invalid email address") }),
+    email: z.email({
+        error: (iss) => (iss.input ? "Invalid Type Email" : "Please enter your email")
+    }),
 
     username: z.string("please enter your username")
         .nonempty("Username is required")

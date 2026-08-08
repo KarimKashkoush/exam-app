@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/button/button";
 import RightArrow from "@/assets/svg/right-arrow-svgrepo-com.svg?react";
 import { useFormContext } from "react-hook-form";
 

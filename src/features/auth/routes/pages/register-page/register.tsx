@@ -1,8 +1,8 @@
-import type { IRegisterFormValues, IRegisterStep } from "@/features/auth/types/form";
-import { useState } from "react";
-import { REGISTER_STEPS } from "@/features/auth/constant/form-constant";
+import type { IRegisterFormValues } from "@/features/auth/types/register";
 import RegisterForm from "@/features/auth/components/register/register-form";
-import { useForm, type SubmitHandler } from "react-hook-form";
+import { useForm } from "react-hook-form";
+import { registerSchema } from "@/features/auth/schema/zod/register-schema";
+import { zodResolver } from "@hookform/resolvers/zod";
 
 export default function RegisterPage() {
     const {
@@ -19,13 +19,10 @@ export default function RegisterPage() {
             lastName: "",
             phone: "",
         },
+        resolver: zodResolver(registerSchema),
     });
 
-    const onSubmit: SubmitHandler<IRegisterFormValues> = (data) => {
-        console.log(data)
-    }
 
-    const [step, setStep] = useState<IRegisterStep>(REGISTER_STEPS.EMAIL);
     return (
         <section className="flex flex-col justify-center h-screen max-w-2xl mx-auto px-8 py-28">
 

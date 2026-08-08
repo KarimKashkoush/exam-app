@@ -5,7 +5,7 @@ import * as BasePhoneInput from "react-phone-number-input"
 import flags from "react-phone-number-input/flags"
 
 import { cn } from "@/lib/utils"
-import { Button } from "@/components/ui/button"
+import { Button } from "@/components/ui/button/button"
 import {
   Combobox,
   ComboboxContent,

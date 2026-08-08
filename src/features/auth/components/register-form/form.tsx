@@ -23,7 +23,7 @@ export default function EmailForm() {
             toast.success(response.message);
             navigate("/auth/register/verify-email", { state: { email: data.email } });
         } catch (error) {
-            toast.error(error?.message ?? "Something went wrong. Please try again later.");
+            toast.error((error as { message?: string })?.message ?? "Something went wrong. Please try again later.");
         }
     };
 
