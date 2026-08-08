@@ -1,12 +1,14 @@
+
 import { Button } from "@/components/ui/button/button";
 import { Field, FieldError, FieldLabel } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
-import useSendOtp from "@/features/auth/apis/mutation/usr-send-otp";
+import useSendOtp from "@/features/auth/apis/mutation/user-send-otp";
 import { registerSchema } from "@/features/auth/schema/zod/register-schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { ChevronRight } from "lucide-react";
 import { useForm, type SubmitHandler } from "react-hook-form";
 import z from "zod";
+// import FormFeedback from "../../login-form/form-error/form-error";
 
 const emailStepSchema = registerSchema.pick({
     email: true,
@@ -69,9 +71,7 @@ export default function EmailStep() {
                 Next
                 <ChevronRight />
             </Button>
-
-            <FormFead
-
+            
             <p className="text-center text-gray-500 text-sm font-medium">
                 Already have an account?
                 <Button variant="link">

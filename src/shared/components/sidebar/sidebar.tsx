@@ -1,5 +1,4 @@
 import { Link, NavLink, useNavigate } from "react-router-dom";
-import { Button } from "@/components/ui/button"
 import Logo from "@/assets/svg/logo.svg?react";
 import { useAuthStore } from "@/features/auth/stroe/authStore";
 
@@ -38,6 +37,7 @@ import {
     LogOut,
     FolderCode
 } from "lucide-react";
+import { Button } from "@/components/ui/button/button";
 
 const items = [
     {

@@ -12,7 +12,7 @@ export async function loginApi(values: ILoginFormValues) {
 }
 
 
-export async function sedOtpApi(email: Pick<IRegisterFormValues, "email">) {
+export async function sendOtpApi(email: Pick<IRegisterFormValues, "email">) {
       const response = await api.post<IVerifyOtpResponse>(`${AUTH_ENDPOINT}/confirm-email-verification`, email);
 
       return response.data;

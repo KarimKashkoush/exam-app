@@ -1,14 +1,7 @@
-import { Routes } from 'react-router-dom';
-import { AuthRoutes } from "./features/auth/routes/routes"
-import { DiplomasRoute } from './features/diploma/routes/routes';
-import { ExamRoutes } from './features/exam/routes/routes';
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
-export function App() {
-  return (
-    <Routes>
-      {AuthRoutes}
-      {DiplomasRoute}
-      {ExamRoutes}
-    </Routes>
-  )
+const queryClient = new QueryClient();
+
+export default function App({ children }: { children: React.ReactNode }) {
+  return <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>;
 }
