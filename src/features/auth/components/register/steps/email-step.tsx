@@ -12,7 +12,7 @@ export default function EmailStep() {
         formState: { errors },
     } = useForm<IRegisterFormValues>({
         defaultValues: {
-             email: "",
+            email: "",
         },
     });
 
@@ -43,7 +43,7 @@ export default function EmailStep() {
 
             {/* Submit Button */}
             <Button className="mb-9 w-full" variant="outline">Next <ChevronRight /></Button>
-        
+
             <p className="text-center text-gray-500 text-sm font-medium">Already have an account?<Button variant="link">Login</Button> </p>
         </form>
     )
