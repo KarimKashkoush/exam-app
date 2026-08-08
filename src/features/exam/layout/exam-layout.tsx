@@ -1,10 +1,10 @@
 import { Outlet } from 'react-router-dom'
 import Navbar from '../../../shared/components/navbar/navbar'
-import {AppSidebar} from '../../../shared/components/sidebar/sidebar'
+import { AppSidebar } from '../../../shared/components/sidebar/sidebar'
 import { SidebarInset, SidebarProvider } from '@/components/ui/sidebar'
 
 
-export default function DiplomaLayout() {
+export default function ExamLayout() {
     return (
         <SidebarProvider>
             <AppSidebar />

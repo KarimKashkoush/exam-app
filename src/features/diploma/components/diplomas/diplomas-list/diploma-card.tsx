@@ -3,9 +3,10 @@ import type { Diploma } from "@/features/diploma/types/diplomas";
 
 
 export default function DiplomaCard({ diploma }: { diploma: Diploma }) {
+    
     return (
         <Link
-            to="/"
+            to={`/diplomas/${diploma.id}/exams`}
             className="relative flex items-end p-2.5 h-112 overflow-auto bg-cover bg-center"
             style={{
                 backgroundImage: `url(${diploma.image})`,
