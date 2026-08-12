@@ -14,7 +14,7 @@ export const buttonVariants = cva(
                               "hover:bg-gray-200 disabled:text-gray-400 text-gray-800 aria-expanded:bg-muted aria-expanded:text-foreground dark:hover:bg-muted/50",
                         destructive:
                               "disabled:bg-gray-200 disabled:text-gray-400 bg-red-600 text-white hover:bg-red-700 focus-visible:border-destructive/40 focus-visible:ring-destructive/20 dark:bg-destructive/20 dark:hover:bg-destructive/30 dark:focus-visible:ring-destructive/40",
-                        link: "text-blue-600 hover:text-blue-700 underline-offset-4 hover:underline",
+                        link: "cursor-pointer text-blue-600 hover:text-blue-700",
                   },
                   size: {
                         default: "h-11.5 gap-2.5 px-2.5 has-data-[icon=inline-end]:pr-2 has-data-[icon=inline-start]:pl-2",

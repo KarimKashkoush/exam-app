@@ -1,8 +1,8 @@
-const API_LINK = import.meta.env.VITE_API_LINK;
+const VITE_API_BASE_UR = import.meta.env.VITE_API_LINK;
 
 export const emailVerification = async (email: string) => {
     const response = await fetch(
-        `${API_LINK}/api/auth/send-email-verification`,
+        `${VITE_API_BASE_UR}/api/auth/send-email-verification`,
         {
             method: "POST",
             headers: {

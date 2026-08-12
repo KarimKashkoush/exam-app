@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
-import { emailVerification } from "@/features/auth/apis/email-verification/email-verification";
+import useSendOtp from "@/features/auth/apis/mutation/user-send-otp";
+import { Button } from "@/components/ui/button/button";
 
 interface OtpTimerProps {
     email: string;
@@ -9,6 +10,8 @@ interface OtpTimerProps {
 const OTP_DURATION = 60;
 
 export default function OtpTimer({ email }: OtpTimerProps) {
+    const { mutate: sendOtp } = useSendOtp();
+
     const [loading, setLoading] = useState(false);
 
     const [timeLeft, setTimeLeft] = useState(() => {
@@ -52,14 +55,7 @@ export default function OtpTimer({ email }: OtpTimerProps) {
         try {
             setLoading(true);
 
-            const response = await emailVerification(email);
-
-            if (!response.status) {
-                toast.error(response.message);
-                return;
-            }
-
-            toast.success(response.message);
+            sendOtp(email)
 
             const expireTime = Date.now() + OTP_DURATION * 1000;
 
@@ -87,14 +83,15 @@ export default function OtpTimer({ email }: OtpTimerProps) {
     return (
         <p className="text-base font-mono text-center mb-8">
             Didn't receive the code?{" "}
-            <button
+            <Button
+                variant="link"
                 type="button"
                 disabled={loading}
                 onClick={resendCode}
-                className="font-medium text-blue-600 hover:underline disabled:opacity-50"
+                className="p-0"
             >
                 {loading ? "Sending..." : "Resend Code"}
-            </button>
+            </Button>
         </p>
     );
 }

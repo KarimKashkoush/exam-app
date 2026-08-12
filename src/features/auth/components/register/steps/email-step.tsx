@@ -9,8 +9,8 @@ import { ChevronRight } from "lucide-react";
 import { useForm, useFormContext, type SubmitHandler } from "react-hook-form";
 import { Link } from "react-router-dom";
 import z from "zod";
-import FormFeedback from "../../login-form/form-error/form-error";
-import type { SetStateAction } from "react";
+import { useEffect, type SetStateAction } from "react";
+import FormFeedback from "../../form-error/form-error";
 import type { IRegisterFormValues, IRegisterStep } from "@/features/auth/types/register";
 import { REGISTER_STEPS } from "@/features/auth/constant/form-constant";
 
@@ -32,13 +32,14 @@ export default function EmailStep({ setStep }: IRegisterFormProps) {
         error,
     } = useSendOtp();
 
-    const {setValue} = useFormContext<IRegisterFormValues>();
+    const { setValue, getValues } = useFormContext<IRegisterFormValues>();
     const {
         register,
         handleSubmit,
+        setFocus,
     } = useForm<EmailStepSchema>({
         defaultValues: {
-            email: "",
+            email: getValues("email"),
         },
         resolver: zodResolver(emailStepSchema),
         mode: "onChange",
@@ -46,12 +47,16 @@ export default function EmailStep({ setStep }: IRegisterFormProps) {
 
     const onSubmit: SubmitHandler<EmailStepSchema> = (values) => {
         sendOtp(values.email, {
-            onSuccess: () => { 
+            onSuccess: () => {
                 setStep(REGISTER_STEPS.OTP);
                 setValue("email", values.email);
             }
         });
     };
+
+    useEffect(() => {
+        setFocus("email");
+    }, [setFocus])
 
     return (
         <form onSubmit={handleSubmit(onSubmit)}>

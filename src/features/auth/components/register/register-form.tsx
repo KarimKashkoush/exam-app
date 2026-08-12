@@ -34,7 +34,7 @@ export default function RegisterForm({ step, setStep }: IRegisterFormProps) {
                   case REGISTER_STEPS.EMAIL:
                         return <EmailStep setStep={setStep} />;
                   case REGISTER_STEPS.OTP:
-                        return <OtpVerificationStep />;
+                        return <OtpVerificationStep setStep={setStep} />;
                   case REGISTER_STEPS.INFORMATION:
                         return <InformationStep />;
                   case REGISTER_STEPS.PASSWORD:
@@ -47,4 +47,4 @@ export default function RegisterForm({ step, setStep }: IRegisterFormProps) {
                   {render()}
             </FormProvider>
       );
-}
+} 

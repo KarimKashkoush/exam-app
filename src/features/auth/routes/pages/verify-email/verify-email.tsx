@@ -3,7 +3,6 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 
-import Stepper from "@/features/auth/components/register-form/stepper/stepper";
 import VerifyField from "@/features/auth/components/otp/verify/form/field/filed";
 import VerifyFormBtn from "@/features/auth/components/otp/verify/form/button/button";
 
@@ -11,6 +10,7 @@ import { otpVerification } from "@/features/auth/apis/otp/otp";
 import { verifyOtpSchema } from "@/features/auth/schema/zod/verify-otp";
 import type { VerifyOtpFormData } from "@/features/types/verify-otp-interface";
 import OtpTimer from "@/features/auth/components/otp/otp-timer/otp-timer";
+import SubHeading from "@/features/auth/components/register/sub-heading";
 
 export default function VerifyEmail() {
     const navigate = useNavigate();
@@ -59,9 +59,8 @@ export default function VerifyEmail() {
                 Create Account
             </h2>
 
-            <h3 className="text-blue-600 text-2xl font-bold font-inter mb-1">
-                Verify OTP
-            </h3>
+
+            <SubHeading>Verify OTP</SubHeading>
 
             <p className="text-base text-gray-500 font-mono">
                 Please enter the 6-digits code we have sent to:
