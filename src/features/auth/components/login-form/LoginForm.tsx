@@ -9,7 +9,7 @@ import { toast } from "sonner";
 import { Link, useNavigate } from "react-router-dom";
 import { LoginApi } from "../../apis/login/login";
 import Password from "./fileds/password/filed";
-import FormError from "./form-error/form-error";
+import FormFeedback from "./form-error/form-error";
 
 export default function LoginForm() {
 
@@ -51,10 +51,12 @@ export default function LoginForm() {
                 <Link to="/auth/forgot-password" className="text-blue-600 font-medium text-sm font-mono text-end mb-1">Forgot your password?</Link>
 
                 {(errors.username || errors.password) && (
-                    <FormError />
+                    <FormFeedback>
+                        something went wrong!
+                    </FormFeedback>
                 )}
                 <Button />
-                <p className="text-sm font-medium text-gray-500 font-mono text-center">Don't have an account? <Link to="/auth/register" className="text-blue-600">Create yours</Link></p>
+                <p className="text-sm font-medium text-gray-500 font-mono text-center">Don't have an account? <Link to="/register" className="text-blue-600">Create yours</Link></p>
             </form>
         </FormProvider>
     )

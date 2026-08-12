@@ -15,7 +15,7 @@ function Input({ className, type, ...props }: React.ComponentProps<"input">) {
         focus-visible:border-blue-600
         disabled:pointer-events-none disabled:cursor-not-allowed
         disabled:bg-input/50 disabled:opacity-50
-        aria-invalid:border-red-600
+        aria-invalid:border-red-600 aria-invalid:bg-red-50
         md:text-sm`,
         className
       )}

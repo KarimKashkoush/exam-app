@@ -5,6 +5,8 @@ import type { ILoginFormValues, ILoginResponse } from "../types/login";
 import type { ISuccessResponse } from "@/shared/types/api";
 import type { IRegisterFormValues, IVerifyOtpResponse } from "../types/register";
 
+
+// Login API
 export async function loginApi(values: ILoginFormValues) {
       const response = await api.post<ISuccessResponse<ILoginResponse>>(`${AUTH_ENDPOINT}/login`, values);
 
@@ -12,14 +14,17 @@ export async function loginApi(values: ILoginFormValues) {
 }
 
 
-export async function sendOtpApi(email: Pick<IRegisterFormValues, "email">) {
-      const response = await api.post<IVerifyOtpResponse>(`${AUTH_ENDPOINT}/confirm-email-verification`, email);
+// Send OTP API
+export async function sendOtpApi(email: IRegisterFormValues["email"]) {
+      const response = await api.post<IVerifyOtpResponse>(`${AUTH_ENDPOINT}/send-email-verification`, { email });
 
-      return response.data;
+      return response;
 }
 
+
+// Verify Email API
 export async function verifyEmailApi(
-      { email, code }: { email: Pick<IRegisterFormValues, "email">; code: string }
+      { email, code }: Pick<IRegisterFormValues, "email"> & { code: string }
 ) { 
       const response = await api.post<IVerifyOtpResponse>(`${AUTH_ENDPOINT}/confirm-email-verification`, { email, code });
 

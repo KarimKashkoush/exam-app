@@ -1,26 +1,12 @@
-import type { IRegisterFormValues } from "@/features/auth/types/register";
+import type { IRegisterStep } from "@/features/auth/types/register";
 import RegisterForm from "@/features/auth/components/register/register-form";
-import { useForm } from "react-hook-form";
-import { registerSchema } from "@/features/auth/schema/zod/register-schema";
-import { zodResolver } from "@hookform/resolvers/zod";
+import { useState } from "react";
+import { REGISTER_STEPS } from "@/features/auth/constant/form-constant";
 
 export default function RegisterPage() {
-    const {
-        register,
-        handleSubmit,
-        formState: { errors },
-    } = useForm<IRegisterFormValues>({
-        defaultValues: {
-            username: "",
-            email: "",
-            password: "",
-            confirmPassword: "",
-            firstName: "",
-            lastName: "",
-            phone: "",
-        },
-        resolver: zodResolver(registerSchema),
-    });
+    
+    const [step, setStep] = useState<IRegisterStep>(REGISTER_STEPS.EMAIL); 
+    // Assuming IregisterStep.Email is the initial step. Adjust according to your actual enum or type.
 
 
     return (
@@ -31,7 +17,7 @@ export default function RegisterPage() {
             </h2>
 
 
-            <RegisterForm />
+            <RegisterForm step={step} setStep={setStep}/>
         </section>
     )
 }

@@ -18,7 +18,7 @@ export default function InformationPersonalForm() {
     // add email to the form data before submission
     const onSubmit = (data: z.infer<typeof personalInformationSchema>) => {
         toast.success("Personal information submitted successfully!");
-        navigate("/auth/register/register-password-page", {
+        navigate("/register/register-password-page", {
             state: {
                 ...state,
                 ...data,

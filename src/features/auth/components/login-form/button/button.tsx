@@ -7,7 +7,7 @@ export default function ButtonForm() {
         <Button
             variant="default"
             type="submit"
-            className="mt-9 mb-4"
+            className="mb-4"
         >
             Login
         </Button>

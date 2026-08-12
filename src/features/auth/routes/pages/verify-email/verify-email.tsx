@@ -44,7 +44,7 @@ export default function VerifyEmail() {
 
             toast.success(response.message);
 
-            navigate("/auth/register/personal-information", { state: { email } });
+            navigate("/register/personal-information", { state: { email } });
         } catch (error) {
             console.error(error);
             toast.error("Something went wrong. Please try again later.");
